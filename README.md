@@ -10,7 +10,6 @@ A **FastAPI + GPT-4o** powered resume screening system. Upload PDF resumes, past
 hiresignal/
 ├── main.py                        # FastAPI app entry point
 ├── .env                           # Your API key (never commit this)
-├── .env.example                   # Template — safe to commit
 ├── requirements.txt
 ├── .gitignore
 │
