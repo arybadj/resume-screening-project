@@ -142,23 +142,12 @@ Then upload the generated PDFs and paste `sample-data/job_description.txt` into 
 
 | Candidate | Expected Score | Expected Recommendation |
 |-----------|---------------|------------------------|
-| Priya Sharma | 85–92 | Strong Fit |
+| Aryash Badjatya | 85–92 | Strong Fit |
 | Sneha Reddy | 65–75 | Moderate Fit |
 | Arjun Mehta | 55–68 | Moderate Fit |
 | Rohan Kapoor | 55–65 | Moderate Fit |
 | Kavya Nair | 25–40 | Not Fit |
 
----
 
-## 🔮 Improvements for Production
-
-- [ ] Add authentication (API key or OAuth)
-- [ ] Store results in PostgreSQL
-- [ ] Export results as formatted PDF report
-- [ ] Support DOCX resume format
-- [ ] Add interviewer question suggestions per candidate
-- [ ] Deploy on Railway / Render / AWS EC2
-
----
 
 *Built for AI Automation Intern assessment · Tools: FastAPI, OpenAI GPT-4o, pypdf, Jinja2*
