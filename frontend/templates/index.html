@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HireSignal — AI Resume Screener</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="noise"></div>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <div class="logo-mark">HS</div>
+      <div class="logo-info">
+        <div class="logo-name">HireSignal</div>
+        <div class="logo-sub">AI Resume Screener · GPT-4o</div>
+      </div>
+    </div>
+    <div class="header-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-text" id="statusText">Ready</span>
+    </div>
+  </header>
+
+  <!-- Input Form -->
+  <form id="screenForm" enctype="multipart/form-data">
+    <div class="form-grid">
+
+      <!-- JD Panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-num">01</span>
+          <span class="panel-title">Job Description</span>
+        </div>
+        <textarea
+          name="job_description"
+          id="jdInput"
+          rows="14"
+          placeholder="Paste the full job description here...
+
+Example:
+We are hiring a Data Analyst with 2+ years of experience in SQL, Python, and BI tools (Tableau / Power BI). Strong statistics background and communication skills required..."
+          required
+        ></textarea>
+      </div>
+
+      <!-- Upload Panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-num">02</span>
+          <span class="panel-title">Upload Resumes <span class="panel-hint">(PDF · up to 10)</span></span>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          <input type="file" name="resumes" id="resumeInput" accept=".pdf" multiple required />
+          <div class="drop-content">
+            <div class="drop-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <polyline points="9 15 12 12 15 15"/>
+              </svg>
+            </div>
+            <p class="drop-main">Click or drag & drop PDFs</p>
+            <p class="drop-sub">Multiple files supported</p>
+          </div>
+        </div>
+
+        <div class="file-list" id="fileList"></div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="run-btn" id="runBtn">
+      <span class="btn-icon" id="btnIcon">⚡</span>
+      <span id="btnText">Screen Resumes</span>
+      <div class="btn-loader" id="btnLoader"></div>
+    </button>
+  </form>
+
+  <!-- Error -->
+  <div class="error-banner" id="errorBanner" style="display:none"></div>
+
+  <!-- Results -->
+  <section id="resultsSection" style="display:none">
+    <div class="results-header">
+      <div class="results-title">Screening Results</div>
+      <div class="results-meta" id="resultsMeta"></div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-row" id="summaryRow"></div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table class="results-table" id="resultsTable">
+        <thead>
+          <tr>
+            <th class="th-rank">#</th>
+            <th class="th-candidate">Candidate</th>
+            <th class="th-score">Score</th>
+            <th class="th-strengths">Strengths</th>
+            <th class="th-gaps">Gaps</th>
+            <th class="th-rec">Recommendation</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Export -->
+    <div class="export-row">
+      <button class="export-btn" onclick="exportCSV()">↓ Export CSV</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
