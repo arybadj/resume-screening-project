@@ -38,7 +38,7 @@ hiresignal/
 
 ### 1. Clone & install
 ```bash
-git clone https://github.com/YOUR_USERNAME/hiresignal.git
+git clone https://github.com/arybadj/resume-screening-project.git
 cd hiresignal
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 ### 2. Set up your API key
 ```bash
-cp .env.example .env
+cp  .env
 # Edit .env and paste your OpenAI API key
 ```
 
@@ -94,7 +94,7 @@ http://localhost:8000
 {
   "candidates": [
     {
-      "candidate": "Priya Sharma",
+      "candidate": "Aryash Badjatya",
       "score": 88,
       "strengths": ["Strong SQL (window functions, CTEs)", "3yr Tableau exp at Flipkart", "A/B testing expertise"],
       "gaps": ["No cloud certifications mentioned", "No dbt experience", "Limited ML exposure"],
